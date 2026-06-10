@@ -1,17 +1,12 @@
-// controllers/cartController.js
-import Cart from "../models/Cart.js";
-import Product from "../models/Product.js";
+const Cart = require("../models/Cart");
 
-
-// Add item to cart
-export const addToCart = async (req, res) => {
+const addToCart = async (req, res) => {
   const { userId, productId, quantity } = req.body;
 
   try {
     let cart = await Cart.findOne({ userId });
 
     if (cart) {
-      // Check if product already exists in cart
       const existingProduct = cart.products.find(
         (p) => p.productId.toString() === productId
       );
@@ -37,8 +32,7 @@ export const addToCart = async (req, res) => {
   }
 };
 
-// Get user's cart
-export const getCart = async (req, res) => {
+const getCart = async (req, res) => {
   const { userId } = req.params;
 
   try {
@@ -49,8 +43,7 @@ export const getCart = async (req, res) => {
   }
 };
 
-// Remove product from cart
-export const removeFromCart = async (req, res) => {
+const removeFromCart = async (req, res) => {
   const { userId, productId } = req.body;
 
   try {
@@ -68,3 +61,5 @@ export const removeFromCart = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+module.exports = { addToCart, getCart, removeFromCart };

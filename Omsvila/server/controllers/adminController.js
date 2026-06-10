@@ -1,9 +1,8 @@
-// controllers/adminController.js
-import User from "../models/User.js";
-import Order from "../models/Order.js";
-import Product from "../models/Product.js";
+const User = require("../models/User");
+const Order = require("../models/Order");
+const Product = require("../models/Product");
 
-export const getAdminStats = async (req, res) => {
+const getAdminStats = async (req, res) => {
   try {
     const totalUsers = await User.countDocuments();
     const totalProducts = await Product.countDocuments();
@@ -30,3 +29,5 @@ export const getAdminStats = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+module.exports = { getAdminStats };

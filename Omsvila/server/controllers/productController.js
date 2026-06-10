@@ -1,8 +1,6 @@
-// controllers/productController.js
-import Product from "../models/Product.js";
+const Product = require("../models/Product");
 
-// Create a new product
-export const createProduct = async (req, res) => {
+const createProduct = async (req, res) => {
   try {
     const newProduct = new Product(req.body);
     await newProduct.save();
@@ -12,8 +10,7 @@ export const createProduct = async (req, res) => {
   }
 };
 
-// Get all products
-export const getAllProducts = async (req, res) => {
+const getAllProducts = async (req, res) => {
   try {
     const products = await Product.find();
     res.status(200).json(products);
@@ -22,8 +19,7 @@ export const getAllProducts = async (req, res) => {
   }
 };
 
-// Get a single product by ID
-export const getProductById = async (req, res) => {
+const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     if (!product) return res.status(404).json({ message: "Product not found" });
@@ -33,8 +29,7 @@ export const getProductById = async (req, res) => {
   }
 };
 
-// Delete a product
-export const deleteProduct = async (req, res) => {
+const deleteProduct = async (req, res) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.id);
     if (!product) return res.status(404).json({ message: "Product not found" });
@@ -43,3 +38,5 @@ export const deleteProduct = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+module.exports = { createProduct, getAllProducts, getProductById, deleteProduct };

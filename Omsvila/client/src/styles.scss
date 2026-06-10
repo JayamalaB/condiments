@@ -415,89 +415,6 @@ $orange-800: #cc4a00;    // Darker hover states
     .underline {
       width: 60px;
       height: 4px;
-    //   background-color: #e75b0c;// Footer SCSS using your theme variables
-.footer {
-  background-color: $dark; // Using your $dark color
-  padding: 2rem 0;
-  color: $light; // Light text on dark background
-
-  &-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: $light;
-  }
-
-  &-tagline {
-    font-size: 1rem;
-    color: rgba($light, 0.8); // Slightly transparent light
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba($light, 0.2);
-  }
-
-  &-section {
-    margin-bottom: 1.5rem;
-
-    &-title {
-      font-size: 1.1rem;
-      font-weight: bold;
-      margin-bottom: 0.75rem;
-      color: $light;
-    }
-
-    &-links {
-      list-style: none;
-      padding-left: 0;
-
-      li {
-        margin-bottom: 0.5rem;
-
-        a {
-          color: rgba($light, 0.8);
-          text-decoration: none;
-          transition: all 0.2s;
-
-          &:hover {
-            color: $primary; // Your orange primary color
-            padding-left: 5px;
-          }
-        }
-      }
-    }
-  }
-
-  &-newsletter {
-    &-text {
-      font-size: 1rem;
-      color: rgba($light, 0.8);
-      margin-bottom: 1rem;
-    }
-
-    &-input {
-      width: 100%;
-      padding: 0.5rem;
-      border: 1px solid rgba($light, 0.3);
-      border-radius: 0.25rem;
-      margin-bottom: 1rem;
-      background-color: rgba($light, 0.1);
-      color: $light;
-
-      &::placeholder {
-        color: rgba($light, 0.6);
-      }
-    }
-  }
-
-  &-copyright {
-    font-size: 0.875rem;
-    color: rgba($light, 0.6);
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba($light, 0.2);
-    margin-top: 1.5rem;
-  }
-}
       margin-top: 8px;
     }
   }
@@ -597,5 +514,69 @@ $orange-800: #cc4a00;    // Darker hover states
     border-top: 1px solid #e75b0c;
     color: $orange-100;
     font-size: 0.9rem;
+  }
+}
+
+// ========================
+// Login Modal (Flipkart-style)
+// ========================
+.login-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-modal-box {
+  display: flex;
+  width: 680px;
+  max-width: 95vw;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  position: relative;
+  background: white;
+}
+
+.login-modal-left {
+  background: linear-gradient(135deg, #e75b0c 0%, #5e2b00 100%);
+  width: 280px;
+  flex-shrink: 0;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.login-modal-right {
+  flex: 1;
+  padding: 2.5rem 2rem;
+  position: relative;
+}
+
+// ========================
+// Admin Panel
+// ========================
+.admin-content {
+  background-color: #f5f6fa;
+}
+
+.stat-card {
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  h4 {
+    font-weight: bold;
+    color: $primary;
   }
 }
